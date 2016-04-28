@@ -67,10 +67,21 @@ exports.validate = function(raw, schema) {
           RJ('Failed loading definition file from ' + definitionUrl);
           return null;
         }
+
+        if ( body == '' && response._xhr && response._xhr.responseText ) {
+          // On some testing environments this might be required
+          body = response._xhr.responseText;
+        }
+
         request(profile.schema, function(E, R, B) {
           if(E) {
             RJ('Failed loading schema from ' + profile.schema);
             return null;
+          }
+
+          if ( B == '' && R._xhr && R._xhr.responseText ) {
+            // On some testing environments this might be required
+            B = R._xhr.responseText;
           }
 
           try {
