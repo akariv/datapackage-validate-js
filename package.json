@@ -41,7 +41,7 @@
   "main": "./index",
   "dependencies": {
     "bluebird": "3.1.1",
-    "datapackage-registry": "0.2.1",
+    "datapackage-registry": "git+https://github.com/okfn/datapackage-registry-js.git",
     "json-lint": "0.1.0",
     "request": "2.67.0",
     "tv4": "1.2.7",
